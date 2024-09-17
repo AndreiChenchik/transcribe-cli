@@ -2,10 +2,9 @@ import argparse
 import os
 import json
 from dotenv import load_dotenv
-from downloader import extract_video_id, create_youtube_timestamp_link
-from audio_providers.youtube_audio_provider import YouTubeAudioProvider
-from transcriber import get_or_create_transcription, name_speakers
-
+from .downloader import extract_video_id, create_youtube_timestamp_link
+from .audio_providers.youtube_audio_provider import YouTubeAudioProvider
+from .transcriber import get_or_create_transcription, name_speakers
 
 def main() -> None:
     load_dotenv()  # Load environment variables from .env file

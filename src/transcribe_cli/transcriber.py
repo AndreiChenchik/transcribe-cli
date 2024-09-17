@@ -3,7 +3,8 @@ import json
 from collections import defaultdict
 from typing import List, Dict, Any
 import assemblyai as aai
-from downloader import create_youtube_timestamp_link
+
+from .downloader import create_youtube_timestamp_link
 
 def get_or_create_transcription(audio_file_path: str, api_key: str, language: str = 'en', force_transcribe: bool = False) -> List[Dict[str, Any]]:
     """
@@ -31,7 +32,7 @@ def get_or_create_transcription(audio_file_path: str, api_key: str, language: st
         language_code=language,
         speaker_labels=True,
         word_boost=["[inaudible]"],
-        boost_param="high"
+        boost_param=aai.WordBoost.high
     )
     
     # Create a transcriber
